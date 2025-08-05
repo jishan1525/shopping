@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavigationBar from './NavigationBar';
 
 const HomePage = () => {
   return (
     <div>
-      <NavigationBar />
+   
 
       <header className="bg-light py-5 text-center border-bottom">
         <h1 className="display-4 fw-bold px-3">🛍️ Welcome to shopping App</h1>

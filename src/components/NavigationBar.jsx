@@ -1,8 +1,12 @@
 // NavigationBar.jsx
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ProductContext } from '../ProductContext';
 
 const NavigationBar = () => {
+  const { products } = useContext(ProductContext);
+  const addedCount = products.filter(p => p.isAdded).length;
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -22,7 +26,6 @@ const NavigationBar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>
@@ -32,7 +35,9 @@ const NavigationBar = () => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/productListing">Cart</Link>
+              <Link className="nav-link" to="/cart">
+                Cart ({addedCount}/{products.length})
+              </Link>
             </li>
           </ul>
         </div>
